@@ -1,4 +1,3 @@
-
 import {
   AppBar,
   Toolbar,
@@ -8,7 +7,15 @@ import {
   Grid
 } from '@mui/material'
 
-// import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
+
+import './page.module.css'
 
 export default function Home() {
   const handleSubmit = async () => {
@@ -35,13 +42,12 @@ export default function Home() {
         <Typography variant="h6" style={{flexGrow: 1}}>
           Flashcard SaaS
         </Typography>
-        {/* <SignedOut>
-          <Button color="inherit" href="/sign-in">Login</Button>
-          <Button color="inherit" href="/sign-up">Sign Up</Button>
-        </SignedOut>
-        <SignedIn>
-          <UserButton />
-        </SignedIn> */}
+          <SignedOut>
+            <SignInButton />
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
       </Toolbar>
     </AppBar>
 
